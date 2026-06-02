@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>国家安全网页</title>
-    <body>
-        <iframe src="./百度文库_files/saved_resource.html" width="100%" height="100%"></iframe>
-    </body>
+  <script>
+    function loadSubPage() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', './百度文库_files/saved_resource.html', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var subPageContent = xhr.responseText;
+          document.getElementById('subPageContainer').innerHTML = subPageContent;
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</head>
+<body onload="loadSubPage()">
+  <div id="subPageContainer"></div>
+</body>
+</html>
