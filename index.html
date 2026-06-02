@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <title>国家安全页面</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #subPageContainer {
+      width: 100%;
+      min-height: 100vh;
+    }
+  </style>
   <script>
     function loadSubPage() {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', './百度文库_files/saved_resource.html', true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          var subPageContent = xhr.responseText;
-          document.getElementById('subPageContainer').innerHTML = subPageContent;
-        }
-      };
-      xhr.send();
+      // 使用 iframe 方式加载子页面，避免 CORS 问题
+      var iframe = document.createElement('iframe');
+      iframe.src = '百度文库_files/saved_resource.html';
+      iframe.style.width = '100%';
+      iframe.style.height = '100vh';
+      iframe.style.border = 'none';
+      // iframe.onload = function() {
+      //   console.log('子页面加载成功');
+      // };
+      // iframe.onerror = function() {
+      //   console.error('子页面加载失败');
+      // };
+      document.getElementById('subPageContainer').appendChild(iframe);
     }
   </script>
 </head>
 <body onload="loadSubPage()">
-  <div id="subPageContainer"></div>
+  <div id="subPageContainer">
+    <!-- <p style="text-align:center;padding:50px;">正在加载页面...</p> -->
+  </div>
 </body>
 </html>
