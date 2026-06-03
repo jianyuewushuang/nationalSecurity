@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>国家安全作业</title>
@@ -8,6 +9,7 @@
       margin: 0;
       padding: 0;
     }
+
     #subPageContainer {
       width: 100%;
       min-height: 100vh;
@@ -29,11 +31,21 @@
       // };
       document.getElementById('subPageContainer').appendChild(iframe);
     }
+
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?47d43d2af9218267e052c5cf9dfe97e7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
   </script>
 </head>
+
 <body onload="loadSubPage()">
   <div id="subPageContainer">
     <!-- <p style="text-align:center;padding:50px;">正在加载页面...</p> -->
   </div>
 </body>
+
 </html>
